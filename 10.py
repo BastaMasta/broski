@@ -9,7 +9,7 @@ with open(ipc_file_path, "r", encoding="utf-8") as file:
 
 ipc_document = Document(page_content=ipc_text)
 
-llm = Cohere(cohere_api_key="Hw6tu5eTo6msCsY0DWSWf9ceu1PrvBxDEvXhVQrV")
+llm = Cohere(cohere_api_key="API_KEY_HERE")
 
 qa_chain = load_qa_chain(llm, chain_type="stuff")
 

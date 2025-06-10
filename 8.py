@@ -2,6 +2,7 @@ from langchain.llms import Cohere
 from langchain.prompts import PromptTemplate
 from langchain import LLMChain
 from google.colab import drive
+
 drive.mount('/content/drive')
 file_path = "/content/drive/MyDrive/rbmk.txt"
 
