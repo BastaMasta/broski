@@ -1,6 +1,5 @@
 from langchain_community.llms import Cohere
 from langchain.prompts import PromptTemplate
-from langchain_core.runnables import RunnableLambda
 from pydantic import BaseModel
 import wikipediaapi
 
@@ -37,7 +36,7 @@ prompt_template = """
 institution_name = input("Enter the name of the institution: ")
 wiki_text = fetch_wikipedia_summary(institution_name)
 
-llm = Cohere(cohere_api_key="Hw6tu5eTo6msCsY0DWSWf9ceu1PrvBxDEvXhVQrV")
+llm = Cohere(cohere_api_key="API_KEY_HERE")
 prompt = PromptTemplate.from_template(prompt_template)
 chain = prompt | llm
 

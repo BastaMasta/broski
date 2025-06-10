@@ -24,18 +24,17 @@ medical_corpus = [
 from gensim.utils import simple_preprocess
 from nltk.corpus import stopwords
 import nltk
+from gensim.models import Word2Vec
 
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
+
 def preprocess(sentence):
     return [word for word in simple_preprocess(sentence) if word not in stop_words]
 
 tokenized_corpus = [preprocess(sentence) for sentence in medical_corpus]
 
-from gensim.models import Word2Vec
-
-model = Word2Vec(sentences=tokenized_corpus, vector_size=50, window=3, min_count=1,
-workers=2, epochs=100)
+model = Word2Vec(sentences=tokenized_corpus, vector_size=50, window=3, min_count=1, workers=2, epochs=100)
 print("Most similar to 'disease':")
 print(model.wv.most_similar('diseases', topn=5))
 print("\nMost similar to 'blood':")
