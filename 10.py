@@ -1,15 +1,15 @@
-from langchain.chains import load_qa_chain
+from langchain.chains.question_answering import load_qa_chain
 from langchain.docstore.document import Document
-from langchain.llms import OpenAI
+from langchain.llms import Cohere
 
-ipc_file_path = "path_to_your_ipc_file.txt"
+ipc_file_path = "penal.txt"
 
 with open(ipc_file_path, "r", encoding="utf-8") as file:
     ipc_text = file.read()
 
 ipc_document = Document(page_content=ipc_text)
 
-llm = OpenAI(openai_api_key="YOUR_OPENAI_API_KEY", temperature=0.3)
+llm = Cohere(cohere_api_key="Hw6tu5eTo6msCsY0DWSWf9ceu1PrvBxDEvXhVQrV")
 
 qa_chain = load_qa_chain(llm, chain_type="stuff")
 
